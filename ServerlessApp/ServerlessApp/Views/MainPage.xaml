@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:ViewModel="clr-namespace:ServerlessApp.ViewModels" 
+    x:Class="ServerlessApp.Views.MainPage">
+
+    <ContentPage.BindingContext>
+        <ViewModel:MainViewModel/>
+    </ContentPage.BindingContext>
+    
+    <StackLayout
+        Padding="10,10,10,10">
+        <Label 
+            Text="Calcular Peso Ideal"
+            FontSize="Large"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"/>
+
+        <Label 
+            Text="Nombre"
+            FontAttributes="Bold"/>
+
+        <Entry
+            Text="{Binding Nombre}"
+            Placeholder="Nombre"/>
+
+        <Label 
+            Text="Peso Kg"
+            FontAttributes="Bold"/>
+        
+        <Entry
+            Text="{Binding PesoKg}"
+            Placeholder="Peso Kg"
+            Keyboard="Numeric"/>
+
+        <Label 
+            Text="Altura Mts"
+            FontAttributes="Bold"/>
+        
+        <Entry
+            Text="{Binding AlturaMts}"
+            Placeholder="Altura mts"
+            Keyboard="Numeric"/>
+
+        <Button
+            Text="Calcular"
+            Command="{Binding PesoIdealCommand}"/>
+
+        <ActivityIndicator
+            IsVisible="{Binding IsVisible}"
+            IsRunning="{Binding IsRunning}"/>
+
+        <Label
+            IsVisible="{Binding IsVisible}"
+            Text="{Binding Result}"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"/>
+
+        <Label
+            IsVisible="{Binding ErrorIsVisible}"
+            Text="{Binding Error}"
+            TextColor="Red"
+            HorizontalOptions="Center"/>
+
+        <Label            
+            FormattedText="La Organización Mundial de la Salud estima que un peso saludable es el que se sitúa entre valores de 18,5 y 24,9. Los valores inferiores a 18,5 nos indican un peso demasiado bajo. Si son iguales o superiores a 25 se consideraría ya sobrepeso. Si supera los 30 se trata de obesidad."
+            Margin="10,50,10,10"/>
+    </StackLayout>
+
+</ContentPage>
