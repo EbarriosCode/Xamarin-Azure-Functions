@@ -2,6 +2,7 @@
 
 **Código Azure Function**
 
+```C#
 #r "Newtonsoft.Json"
 
 using System.Net;
@@ -27,3 +28,4 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     else
         return new BadRequestObjectResult("Por favor envie un nombre, altura en metros y peso en kilogramos en el cuerpo de la solicitud");     
 }
+```
