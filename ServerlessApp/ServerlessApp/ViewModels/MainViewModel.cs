@@ -1,4 +1,5 @@
 ﻿using ServerlessApp.Models;
+using ServerlessApp.Resources;
 using ServerlessApp.Services;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -130,9 +131,7 @@ namespace ServerlessApp.ViewModels
             this.IsVisible = true;
             this.IsRunning = true;
 
-            var pesoIdealRequest = await this.azureFunctionService.PesoIdealAzureFunctionAsync<PesoIdealResult>
-                ("https://functionxam.azurewebsites.net/api/HttpTrigger1?code=J5075al48nCRLEtETaRF4Xvd7OmtYYtV/Jyk7cFYLYMMut6Ln90eSg==",
-                 sendParams);
+            var pesoIdealRequest = await this.azureFunctionService.PesoIdealAzureFunctionAsync<PesoIdealResult>(Literals.UrlAzureFunction, sendParams);
 
             if(pesoIdealRequest != null)
             {                
